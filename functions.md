@@ -47,3 +47,155 @@ calculateArea(rectWidth, rectHeight)
 ```
 
 The variables rectWidth and rectHeight are initialized with the values for the height and width of a rectangle before being used in the function call. By using parameters, calculateArea() can be reused to compute the area of any rectangle!
+
+Default parameters allow parameters to have a predetermined value in case there is no argument passed into the function or if the argument is undefined when called.
+
+```javascript
+function greeting (name = 'stranger') {
+  console.log(`Hello, ${name}!`)
+}
+
+greeting('Nick') // Output: Hello, Nick!
+greeting() // Output: Hello, stranger!
+```
+
+## Return
+
+When a function is called, the computer will run through the function’s code and evaluate the result of calling the function. By default that resulting value is undefined.
+
+```javascript
+function rectangleArea(width, height) {
+  let area = width * height 
+}
+console.log(rectangleArea(5, 7)) // Prints undefined
+```
+
+The rectangleArea() is invoked with the arguments 5 and 7. But when we went to print the results we got undefined. In fact, the function worked fine, and the computer did calculate the area as 35, but we didn’t capture it but we can, with the keyword return!
+
+```javascript
+function calculateArea(width, height) {
+  let area = width * height;
+  return area
+}
+```
+
+To pass back information from the function call, we use a return statement. To create a return statement, we use the return keyword followed by the value that we wish to return. Like we saw above, if the value is omitted, undefined is returned instead.
+
+When a return statement is used in a function body, the execution of the function is stopped and the code that follows it will not be executed. Look at the example below:
+
+```javascript
+function rectangleArea(width, height) {
+  if (width < 0 || height < 0) {
+    return 'You need positive integers to calculate area!';
+  }
+  return width * height;
+}
+```
+
+If an argument for width or height is less than 0, then rectangleArea() will return 'You need positive integers to calculate area!'. The second return statement width * height will not run.
+
+The return keyword is powerful because it allows functions to produce an output. We can then save the output to a variable for later use.
+
+We can also use the return value of a function inside another function. These functions being called within another function are often referred to as helper functions. Since each function is carrying out a specific task, it makes our code easier to read and debug if necessary.
+
+If we wanted to define a function that converts the temperature from Celsius to Fahrenheit, we could write two functions like:
+
+```javascript
+function multiplyByNineFifths(number) {
+  return number * (9/5);
+};
+
+function getFahrenheit(celsius) {
+  return multiplyByNineFifths(celsius) + 32;
+};
+
+getFahrenheit(15); // Returns 59
+```
+
+In the example above:
+
+- getFahrenheit() is called and 15 is passed as an argument.
+- The code block inside of getFahrenheit() calls multiplyByNineFifths() and passes 15 as an argument.
+- multiplyByNineFifths() takes the argument of 15 for the number parameter.
+- The code block inside of multiplyByNineFifths() function multiplies 15 by (9/5), which evaluates to 27.
+- 27 is returned back to the function call in getFahrenheit().
+- getFahrenheit() continues to execute. It adds 32 to 27, which evaluates to 59.
+- Finally, 59 is returned back to the function call getFahrenheit(15).
+
+We can use functions to section off small bits of logic or tasks, then use them when we need to. Writing helper functions can help take large and difficult tasks and break them into smaller and more manageable tasks.
+
+## Function Expressions
+
+Another way to define a function is to use a function expression. To define a function inside an expression, we can use the function keyword. In a function expression, the function name is usually omitted. A function with no name is called an anonymous function. A function expression is often stored in a variable in order to refer to it.
+
+To declare a function expression:
+
+- Declare a variable to make the variable’s name be the name, or identifier, of your function. Since the release of ES6, it is common practice to use const as the keyword to declare the variable.
+- Assign as that variable’s value an anonymous function created by using the function keyword followed by a set of parentheses with possible parameters. Then a set of curly braces that contain the function body.
+
+To invoke a function expression, write the name of the variable in which the function is stored followed by parentheses enclosing any arguments being passed into the function.
+
+```javascript
+const plantNeedsWater = function(day){
+  if (day === 'Wednesday'){
+  return true
+  }
+  else {
+  return false;
+  }
+}
+
+console.log(plantNeedsWater('Tuesday')) // Output: False
+```
+
+## Arrow Functions
+
+Arrow functions remove the need to type out the keyword function every time you need to create a function. Instead, you first include the parameters inside the ( ) and then add an arrow => that points to the function body surrounded in { } like this:
+
+```javascript
+const rectangleArea = (width, height) => {
+  let area = width * height;
+  return area;
+};
+```
+
+JavaScript also provides several ways to refactor arrow function syntax. The most condensed form of the function is known as concise body. We’ll explore a few of these techniques below:
+
+Functions that take only a single parameter do not need that parameter to be enclosed in parentheses. However, if a function takes zero or multiple parameters, parentheses are required.
+
+```javascript
+// Zero parameters
+const functionName = () => {};
+// One or more parameters
+const functionName = (paramOne, paramTwo) => {};
+```
+
+A function body composed of a single-line block does not need curly braces. Without the curly braces, whatever that line evaluates will be automatically returned. The contents of the block should immediately follow the arrow => and the return keyword can be removed. This is referred to as implicit return.
+
+```javascript
+// Single-Line block
+const sumNumbers = number => number + number;
+// Multi-Line block
+const sumNumbers = number => {
+  const sum = number + number;
+  return sum;
+}
+```
+
+So if we have a function:
+
+```javascript
+const squareNum = (num) => {
+  return num * num;
+};
+```
+
+We can refactor the function to:
+
+```javascript
+const squareNum = num => num * num;
+```
+
+- The parentheses around num have been removed, since it has a single parameter.
+- The curly braces { } have been removed since the function consists of a single-line block.
+- The return keyword has been removed since the function consists of a single-line block.
