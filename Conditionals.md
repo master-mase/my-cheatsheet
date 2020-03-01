@@ -1,4 +1,3 @@
-
 # Conditionals
 
 Ternary Operator: In the spirit of using short-hand syntax, we can use a ternary operator to simplify an if...else statement.
