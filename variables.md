@@ -14,9 +14,9 @@ var pizzaDay = true         // boolean
 ```
 
 If we don’t assign a value to a variable declared using the let keyword, it automatically has a value of undefined. 
-let price;
 
 ```javascript
+let price;
 console.log(price); // Output: undefined
 price = 350;
 console.log(price); // Output: 350
@@ -38,9 +38,9 @@ b--; // Output: 19
 ```
 
 String Concatenation with Variables
-let myPet = 'armadillo';
 
 ```javascript
+let myPet = 'armadillo';
 console.log('I own a pet ' + myPet + '.'); // Output: 'I own a pet armadillo.'
 ```
 
