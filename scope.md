@@ -117,7 +117,7 @@ console.log(color); // ReferenceError
 - Within the if block, the color variable holds the value 'pink', though outside the if block, in the function body, the color variable holds the value 'blue'.
 - While we use block scope, we still pollute our namespace by reusing the same variable name twice. A better practice would be to rename the variable inside the block.
 
-If a variable does not need to exist outside a block, it shouldn’t!
+If a variable does not need to exist outside a block, it shouldn’t!!
 
 1. Scope is the idea in programming that some variables are accessible/inaccessible from other parts of the program.
 1. Blocks are statements that exist within curly braces {}.
