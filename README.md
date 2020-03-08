@@ -1,7 +1,3 @@
-# test
+# My Cheatsheet
 
-Bruh testing testing
-
-## I'm new
-
-You can see it right?
+Aiding me on my journey to learn coding.
