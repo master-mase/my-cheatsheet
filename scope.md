@@ -24,6 +24,22 @@ if (dusk) {
 };
 ```
 
+Blocks can be also created outside if statements and loops:
+
+```javascript
+const test = 'kana'
+
+{
+  console.log(test)
+  const a = 'kukko'
+  console.log(a)
+}
+
+console.log(a)
+```
+
+> Explicit blocks behave just like you would expect: they have their own scope
+
 ## Global Scope
 
 Scope is the context in which our variables are declared. We think about scope in relation to blocks because variables can exist either outside of or within these blocks.
