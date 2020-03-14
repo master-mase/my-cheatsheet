@@ -25,3 +25,26 @@ for (let counter = 0; counter < 4; counter++) {
 1. The stopping condition is counter < 4, meaning the loop will run as long as the iterator variable, counter, is less than 4.
 1. The iteration statement is counter++. This means after each loop, the value of counter will increase by 1. For the first iteration counter will equal 0, for the second iteration counter will equal 1, and so on.
 1. The code block is inside of the curly braces, console.log(counter), will execute until the condition evaluates to false. The condition will be false when counter is greater than or equal to 4 — the point that the condition becomes false is sometimes called the stop condition.
+
+Inside the for loop, one can use the [comma operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator) (,) to execute multiple statements
+
+```javascript
+const a = ['0123456789', '0123456789', '0123456789', '0123456789', '0123456789', '0123456789', '0123456789', '0123456789', '0123456789', '0123456789']
+for (let i = 0, j = 9; i <= 9; i++, j--)
+  console.log('a[' + i + '][' + j + '] = ' + a[i][j]);
+```
+
+Outputs
+
+```
+a[0][9] = 9
+a[1][8] = 8
+a[2][7] = 7
+a[3][6] = 6
+a[4][5] = 5
+a[5][4] = 4
+a[6][3] = 3
+a[7][2] = 2
+a[8][1] = 1
+a[9][0] = 0
+```
