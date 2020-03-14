@@ -199,3 +199,46 @@ const squareNum = num => num * num;
 - The parentheses around num have been removed, since it has a single parameter.
 - The curly braces { } have been removed since the function consists of a single-line block.
 - The return keyword has been removed since the function consists of a single-line block.
+
+## Higher-order functions
+
+Functions in javascript are so called first-class citizens, i.e. they can be passed around just like variables.
+
+### Simple logger
+
+Consider the following:
+
+```javascript
+const log = text => console.log(text);
+log('logged') // output: logged
+```
+
+What if we wanted to add an identifier to different log-functions?
+A simple solution one would consider is adding another parameter to the function:
+
+```javascript
+const log = (id, text) => console.log(`${id}: ${text}`);
+log('warn', 'logged') // output: warn: logged
+```
+
+But now we have to give the id to the function every time we call it.
+Let's use *higher-order functions* to make this more ergonomic:
+
+```javascript
+function createLogger(id) {
+  const logger = text => console.log(`${id}: ${text}`);
+  return logger
+}
+const warnLogger = createLogger('warn')
+warnLogger('higher-order functions') // output: warn: higher-order functions
+```
+
+Make it neater with arrow functions:
+
+```javascript
+const createLogger = id => text => console.log(`${id}: ${text}`);
+const warnLogger = createLogger('warn')
+warnLogger('higher-order functions') // output: warn: higher-order functions
+```
+
+> Using parameters to create new functions which are then called with more parameters is called currying, a key concept in functional programming.
