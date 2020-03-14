@@ -44,6 +44,29 @@ let myPet = 'armadillo';
 console.log('I own a pet ' + myPet + '.'); // Output: 'I own a pet armadillo.'
 ```
 
+**Note:** string concatenation also works with variables which are not strings
+
+- Numbers
+  ```javascript
+  const num = 5
+  console.log(num + ' cats') // output: 5 cats
+  console.log('3' + 5) // output: 35 cats
+  ```
+- Arrays
+  ```javascript
+  const list = [1, 2, 3]
+  console.log('list: ' + list) // output: list: 1,2,3
+  ```
+- Booleans
+  ```javascript
+  console.log('true, ' + (5 > 6)) // output: true, false
+  ```
+- Objects (don't work as well)
+  ```javascript
+  const obj = {a: 5, b: 6}
+  console.log('obj: ' + obj) // output: obj: [object Object]
+  ```
+
 String Interpolation: We can insert, or interpolate, variables into strings using template literals.
 
 ```javascript
